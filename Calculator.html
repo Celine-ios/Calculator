@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora-Juan Pablo Guzman</title>
+	<script type="text/javascript">
+
+	
+	function resultado(valor) {
+		
+          document.getElementById('shower').innerHTML=''+ valor;
+		   
+	}
+
+
+	           function operation() {
+
+                  
+                       
+	           	  
+	           		this.resultado = resultado;
+
+
+
+
+	           		      var operation_expression = document.getElementById('shower').innerHTML;
+
+                    var plus_regexpression = new RegExp('[+]');
+
+                    var rest_regexpression = new RegExp('[-]');
+
+                    var mult_regexpression = new RegExp('[*]');
+
+                    var div_regexpression = new RegExp('[/]');
+
+
+
+                      var plus_regexp_execute = plus_regexpression.exec(operation_expression);
+
+                      var rest_regexp_execute = rest_regexpression.exec(operation_expression);
+
+                      var mult_regexp_execute = mult_regexpression.exec(operation_expression);
+
+                      var div_regexp_execute = div_regexpression.exec(operation_expression);
+
+                         if (plus_regexp_execute == '+') {
+
+                     	     var plus_result = eval(operation_expression);
+
+                   		 return resultado(plus_result);
+
+                               }
+
+                               else { 
+
+                                if (rest_regexp_execute == '-') {
+
+
+                                		var rest_result = eval(operation_expression);
+
+                                	   return resultado(rest_result);
+                                }
+
+                                else {
+
+
+                                	  if (mult_regexp_execute == '*') {
+
+                                	  	   var mult_result = eval(operation_expression);
+
+                                	  	    return resultado(mult_result);
+                                	  }
+
+                                	  else {
+
+
+                                	  	    if (div_regexp_execute == '/') {
+
+                                	  	    	   var div_result = eval(operation_expression);
+
+                                	  	    	      return resultado(div_result);
+                                	  	    }
+                                	  }
+                                }
+
+                                      }
+    
+	           }
+
+
+	        function requiser() {
+
+	        	var requise = document.getElementById('value1').value;
+	        	
+                 if ( requise == '') {
+
+                  alert("Rellene el primer valor a Operar");
+	        }
+
+	           else {
+
+	           	      document.getElementsByClassName('boton_sumar')[0].style.opacity = '1';
+	           	      document.getElementsByClassName('boton_restar')[0].style.opacity = '1';
+	           	      document.getElementsByClassName('boton_multiplicar')[0].style.opacity = '1';
+	           	      document.getElementsByClassName('boton_dividir')[0].style.opacity = '1';
+	           	      document.getElementsByClassName('boton_resultado')[0].style.opacity = '1';
+
+	           }
+                         }
+
+	           function value1_focus() {
+	           	
+
+	           	     document.getElementById('value1').style.borderBottom='1px solid limegreen';
+	           }
+
+             function value2_focus() {
+             	
+
+             	   document.getElementById('value2').style.borderBottom='1px solid limegreen';
+             }
+
+          function put_value_one() {
+
+
+          	  var valor1 = document.getElementById('value1').value;
+
+          	      document.getElementsByTagName('p')[0].innerHTML=''+ valor1; 
+          	
+
+
+          }
+
+          function put_value_two() {
+
+
+          	        var shower_value = document.getElementById('shower').innerHTML;
+
+          	   var valor2 = document.getElementById('value2').value;
+
+
+          	       document.getElementsByTagName('p')[0].innerHTML= shower_value +''+ valor2;
+          }
+	    
+function starter() {
+
+				
+
+	     	
+	     	document.getElementById('value1').onfocus=value1_focus;
+             
+             document.getElementById('value2').onfocus=value2_focus;
+          
+               document.getElementsByClassName('boton_resultado')[0].onclick=operation;
+
+                
+	     }
+
+      window.onload=starter;
+	</script>
+</head>
+<body>
+<style type="text/css">
+	
+	 body {
+    position: absolute;
+    width: 100%;
+    height: 1000px;
+    margin: 0px;
+    background-image: url(bgblack2.jpg);
+
+}
+
+#unic {
+    position: absolute;
+    width: 31.6%;
+    height: 40%;
+    background: transparent;
+    left: 35%;
+    top: 20%;
+    border-radius: 20px;
+    border: 1px solid aqua;
+}
+#viewer {
+    position: absolute;
+    width: 80%;
+    height: 35%;
+    background: rgba(0, 0, 0, 0.56);
+    left: 10%;
+    top: 8%;
+    border-radius: 5px;
+    font-family: arial;
+    color: white;
+}
+#shower {
+    position: absolute;
+    width: 100%;
+    height: 29%;
+    top: 70%;
+    margin: 0px;
+    font-size: xx-large;
+    margin-left: 4%;
+}
+#numbers {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 47%;
+    height: 50%;
+    font-family: arial;
+}
+#value1 {
+    position: absolute;
+    top: 25%;
+    background: transparent;
+    border: 0px;
+    border-bottom: 1px solid aqua;
+    -webkit-transition: border 0.5s ease 0.2s;
+}
+#value1:focus {
+
+    outline: none;
+}
+input::-webkit-inner-spin-button {
+
+    -webkit-appearance: inner-spin-button;
+    display: inline-block;
+    cursor: default;
+    align-self: stretch;
+    user-select: none;
+    opacity: 0;
+    pointer-events: none;
+    -webkit-user-modify: read-only;
+    flex: 0 0 auto;
+    visibility: !important hidden;
+}
+#value2 {
+    position: absolute;
+    top: 70%;
+    border: 0px;
+    border-bottom: 1px solid aqua;
+    background: transparent;
+	-webkit-transition: border 0.5s ease 0.2s;  
+    opacity: 0.2;
+    -webkit-transition: opacity 0.8s ease 0.2s;
+}
+#value2:focus {
+
+
+	outline: none;
+}
+.boton_sumar {
+    position: absolute;
+    left: 60%;
+    width: 15%;
+    height: 20%;
+    background: transparent;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    top: 25%;
+    font-family: arial;
+    color: white;
+    -webkit-transition: border 0.5s ease 0.5s;
+}
+.boton_sumar:focus {
+
+
+    outline: none;
+}
+.boton_sumar:hover {
+
+     border: 1px solid red;
+}
+.boton_restar {
+    position: absolute;
+    background: transparent;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    width: 15%;
+    height: 20%;
+    left: 80%;
+    top: 25%;
+    font-family: arial;
+    color: white;
+     -webkit-transition: border 0.5s ease 0.5s;
+
+}
+.boton_restar:focus {
+
+
+    outline: none;
+}
+.boton_restar:hover {
+
+      border: 1px solid blue;
+}
+.boton_multiplicar {
+    position: absolute;
+    background: transparent;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    width: 15%;
+    height: 20%;
+    left: 60%;
+    top: 50%;
+    font-family: arial;
+    color: white;
+     -webkit-transition: border 0.5s ease 0.5s;
+}
+.boton_multiplicar:focus {
+
+
+    outline: none;
+}
+.boton_multiplicar:hover {
+
+
+      border: 1px solid yellow;
+}
+.boton_dividir {
+    position: absolute;
+    background: transparent;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    width: 15%;
+    height: 20%;
+    left: 80%;
+    top: 50%;
+    font-family: arial;
+    color: white;
+     -webkit-transition: border 0.5s ease 0.5s;
+}
+.boton_dividir:focus {
+
+
+    outline: none;
+}
+.boton_dividir:hover {
+
+
+      border: 1px solid limegreen;
+}
+.boton_resultado {
+
+    position: absolute;
+    background: transparent;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    width: 35%;
+    height: 20%;
+    left: 60%;
+    top: 75%;
+    font-family: arial;
+    color: white;
+     -webkit-transition: border 0.5s ease 0.5s;
+
+}
+.boton_resultado:focus {
+
+
+    outline: none;
+}
+.boton_resultado:hover {
+
+      border: 1px solid white;
+}
+input[type="button"] {
+
+
+      opacity: 0.2;
+}
+</style>
+<div id="unic">
+	<div id="viewer">
+        <p id="shower"></p>
+	</div>
+	<div id="numbers">
+
+	<input type="number" name="first_value" id="value1"  onkeyup="put_value_one();" onblur="document.getElementById('value1').style.borderBottom='1px solid aqua'; requiser();" autofocus>
+	<input type="number" name="second_value" id="value2" onblur="document.getElementById('value2').style.borderBottom='1px solid aqua'; put_value_two();">
+
+	   <input type="button" name="suma" class="boton_sumar" value="+" onblur="document.getElementById('value2').style.opacity='1';" onclick=" var shower_value = document.getElementById('shower').innerHTML; document.getElementById('shower').innerHTML= shower_value + '+';">
+	  <input type="button" name="resta" class="boton_restar" value="-" onblur="document.getElementById('value2').style.opacity='1';" onclick="var shower_value = document.getElementById('shower').innerHTML; document.getElementById('shower').innerHTML= shower_value + '-';">
+	 <input type="button" name="mult" class="boton_multiplicar" value="*" onblur="document.getElementById('value2').style.opacity='1';" onclick="var shower_value = document.getElementById('shower').innerHTML; document.getElementById('shower').innerHTML= shower_value + '*';">
+	<input type="button" name="div" class="boton_dividir" value="/" onblur="document.getElementById('value2').style.opacity='1';" onclick="var shower_value = document.getElementById('shower').innerHTML; document.getElementById('shower').innerHTML= shower_value + '/';">
+   <input type="button" name="result" class="boton_resultado" value="=" onblur="document.getElementById('value2').style.opacity='1';">
+	
+	</div>
+</div>
+
+</body>
+</html>
